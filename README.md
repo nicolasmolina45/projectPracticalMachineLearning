@@ -1,0 +1,2 @@
+# projectPracticalMachineLearning
+The goal of this project is to predict how six participants performed barbell lifts correctly and incorrectly in five different ways. Data from accelerometers attached to the belt, forearm, upper arm, and dumbbell are used to determine how well each participant was performing the barbell lifts. The machine learning algorithm that is developed in this report is applied to 20 test cases available in the test data. The predictions are used for the project prediction evaluation questionnaire for qualification.
