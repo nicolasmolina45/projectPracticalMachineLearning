@@ -1,9 +1,13 @@
 ---
 title: "Project Practical Machine Learning"
 author: "Jose Nicolas Molina"
-format: html
-editor: visual
+date: "2022-09-11"
+output: html_document
 ---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
 ## Introduction
 
@@ -11,23 +15,22 @@ The goal of this project is to predict how six participants performed barbell li
 
 ## Data Loading, Packages and Library
 
-#### Download data from url
+Download data from url:
 
 ```{r}
 dataTrain <- "http://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv"
 
 dataTest <- "http://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv"
-
 ```
 
-#### Load the datasets
+Load the datasets
 
 ```{r}
 training <- read.csv(url(dataTrain))
 testing  <- read.csv(url(dataTest))
 ```
 
-#### Load packages and library
+Load packages and library
 
 ```{r}
 library(knitr)
@@ -39,7 +42,7 @@ library(randomForest)
 library(corrplot)
 ```
 
-#### Data spliting
+Data spliting
 
 A training data set (70%) will be created for the modeling process and a test data set (30%) for validations. The testing data set is used in the choice of results for the prediction quiz.
 
@@ -49,7 +52,7 @@ trainSet <- training[inTrain, ]
 testSet  <- training[-inTrain, ]
 ```
 
-#### Exploratory Analysis and Cleaning
+Exploratory Analysis and Cleaning
 
 ```{r}
 dim(trainSet)
@@ -112,7 +115,7 @@ Note: Variables with high correlations are presented in dark colors.
 
 Random Forest, Decision Trees and Generalized Boosted Model methods are applied to model the regressions. The one with the highest precision, when applied to the test data set, is used in the predictions of the questionnaire.
 
-#### Random Forest
+### Random Forest
 
 Model fit
 
@@ -139,7 +142,7 @@ plot(confMatRf$table, col = confMatRf$byClass,
                   round(confMatRf$overall['Accuracy'], 4)))
 ```
 
-#### Decision Trees
+### Decision Trees 
 
 Model fit
 
@@ -165,7 +168,7 @@ plot(confMatDTree$table, col = confMatDTree$byClass,
                   round(confMatDTree$overall['Accuracy'], 4)))
 ```
 
-#### Generalized Boosted Model
+### Generalized Boosted Model
 
 Model fit
 
